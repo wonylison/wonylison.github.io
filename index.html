@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이광원 | 포트폴리오</title>
+    <!-- 구글 폰트: Pretendard 스타일의 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --dark-color: #2c3e50;
+            --light-color: #f4f7f6;
+            --text-color: #333;
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body.dark-mode {
+            --dark-color: #ecf0f1;
+            --light-color: #34495e;
+            --text-color: #ecf0f1;
+            --bg-color: #1a1a1a;
+            --card-bg: #2c3e50;
+        }
+
+        html {
+            scroll-behavior: smooth; /* 부드러운 스크롤 효과 */
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 10%;
+            background: var(--bg-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1352&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        #hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        /* Section Layout */
+        section {
+            padding: 6rem 10%;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        #about .content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 20px 20px 0px var(--light-color);
+        }
+
+        .skills {
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: var(--light-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: var(--light-color);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            background: var(--bg-color);
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 3rem;
+        }
+
+        /* Theme Toggle Button */
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            #about .content {
+                grid-template-columns: 1fr;
+            }
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">LW.LEE</a>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#market">Market</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button id="theme-toggle">🌙</button></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <h1>안녕하세요, 이광원입니다.</h1>
+        <p>기술을 통해 더 나은 사용자 경험을 설계하는 개발자입니다.</p>
+        <a href="#projects" class="btn">프로젝트 보기</a>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="content">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=634&q=80" alt="이광원 프로필" class="profile-img">
+            <div>
+                <h3>지속적으로 성장하는 개발자</h3>
+                <br>
+                <p>안녕하세요! 저는 효율적인 코드와 깔끔한 디자인의 조화를 중요하게 생각하는 <strong>이광원</strong>입니다. 사용자 중심의 사고로 문제를 해결하고, 팀과 함께 더 큰 가치를 만드는 것을 즐깁니다.</p>
+                <div class="skills">
+                    <span class="skill-tag">HTML5 / CSS3</span>
+                    <span class="skill-tag">JavaScript (ES6+)</span>
+                    <span class="skill-tag">React.js</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>주요 프로젝트 01</h3>
+                <p>사용자 맞춤형 대시보드 인터페이스를 개발하여 업무 효율성을 30% 개선했습니다.</p>
+            </div>
+            <div class="project-card">
+                <h3>주요 프로젝트 02</h3>
+                <p>실시간 데이터 스트리밍 기술을 활용한 금융 분석 웹 애플리케이션입니다.</p>
+            </div>
+            <div class="project-card">
+                <h3>주요 프로젝트 03</h3>
+                <p>반응형 디자인 시스템을 구축하여 모든 디바이스에서 동일한 사용자 경험을 제공했습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="market">
+        <h2>Market Insight</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="project-card" style="border-top: 5px solid var(--primary-color); padding: 20px;">
+                <h3 style="margin-bottom: 20px; text-align: left;">🔥 거래량 급등 상승 종목</h3>
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid var(--light-color);">
+                            <th style="padding: 10px;">종목명</th>
+                            <th style="padding: 10px; text-align: right;">현재가</th>
+                            <th style="padding: 10px; text-align: right;">등락률</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stock-list"></tbody>
+                </table>
+                <p style="margin-top: 15px;"><small style="color: #888;">네이버 증권 거래량 급증 상위 데이터 (MCP 실시간 연동)</small></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>새로운 프로젝트 제안이나 커피챗은 언제나 환영입니다.</p>
+        <div class="contact-info">
+            <p>📧 kwangwon@example.com</p>
+            <p>🔗 github.com/kwangwon-lee</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 이광원. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 테마 설정 로드
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            document.getElementById('theme-toggle').textContent = '☀️';
+        }
+
+        const toggleBtn = document.getElementById('theme-toggle');
+        toggleBtn.addEventListener('click', () => {
+            const isDark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            toggleBtn.textContent = isDark ? '☀️' : '🌙';
+        });
+    </script>
+
+</body>
+</html>
