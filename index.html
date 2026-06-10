@@ -311,7 +311,7 @@
 
     <section id="market">
         <h2>Market Insight</h2>
-        <div style="max-width: 800px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
             <div class="project-card" style="border-top: 5px solid var(--primary-color); padding: 20px;">
                 <h3 style="margin-bottom: 20px; text-align: left;">🔥 거래량 급등 상승 종목</h3>
                 <table style="width: 100%; border-collapse: collapse; text-align: left;">
@@ -322,9 +322,48 @@
                             <th style="padding: 10px; text-align: right;">등락률</th>
                         </tr>
                     </thead>
-                    <tbody id="stock-list"></tbody>
+                    <tbody id="stock-list"><!-- Naver Surging Stocks --><!-- Global Pro Stocks --><tr style="border-bottom: 1px solid var(--light-color); background: rgba(52, 152, 219, 0.05);">
+                                <td style="padding: 12px;"><strong>애플 (Pro)</strong></td>
+                                <td style="padding: 12px; text-align: right; font-weight: 700;">302</td>
+                                <td style="padding: 12px; text-align: right; color: #3498db;">-1.89%</td>
+                            </tr><tr style="border-bottom: 1px solid var(--light-color); background: rgba(52, 152, 219, 0.05);">
+                                <td style="padding: 12px;"><strong>엔비디아 (Pro)</strong></td>
+                                <td style="padding: 12px; text-align: right; font-weight: 700;">209</td>
+                                <td style="padding: 12px; text-align: right; color: #e74c3c;">+1.73%</td>
+                            </tr><tr style="border-bottom: 1px solid var(--light-color); background: rgba(52, 152, 219, 0.05);">
+                                <td style="padding: 12px;"><strong>삼성전자 (Pro)</strong></td>
+                                <td style="padding: 12px; text-align: right; font-weight: 700;">302,500</td>
+                                <td style="padding: 12px; text-align: right; color: #3498db;">-6.06%</td>
+                            </tr></tbody>
                 </table>
                 <p style="margin-top: 15px;"><small style="color: #888;">실시간 시장 데이터 분석 (MCP 연동 데이터)</small></p>
+            </div>
+
+            <div class="project-card" style="border-top: 5px solid var(--primary-color); padding: 20px;">
+                <h3 style="margin-bottom: 20px; text-align: left;">💱 실시간 주요 환율</h3>
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid var(--light-color);">
+                            <th style="padding: 10px;">통화명</th>
+                            <th style="padding: 10px; text-align: right;">매매기준율</th>
+                            <th style="padding: 10px; text-align: right;">대비</th>
+                        </tr>
+                    </thead>
+                    <tbody id="exchange-list"><!-- Exchange Rates --><tr style="border-bottom: 1px solid var(--light-color);">
+                                <td style="padding: 12px;"><strong>USD/KRW (달러)</strong></td>
+                                <td style="padding: 12px; text-align: right; font-weight: 700;">1,519.18원</td>
+                                <td style="padding: 12px; text-align: right; color: #3498db;">-9.70 (-0.63%)</td>
+                            </tr><tr style="border-bottom: 1px solid var(--light-color);">
+                                <td style="padding: 12px;"><strong>JPY/KRW (100엔)</strong></td>
+                                <td style="padding: 12px; text-align: right; font-weight: 700;">944.80원</td>
+                                <td style="padding: 12px; text-align: right; color: #3498db;">-9.46 (-0.99%)</td>
+                            </tr><tr style="border-bottom: 1px solid var(--light-color);">
+                                <td style="padding: 12px;"><strong>EUR/KRW (유로)</strong></td>
+                                <td style="padding: 12px; text-align: right; font-weight: 700;">1,754.70원</td>
+                                <td style="padding: 12px; text-align: right; color: #3498db;">-5.01 (-0.28%)</td>
+                            </tr></tbody>
+                </table>
+                <p style="margin-top: 15px;"><small style="color: #888;">실시간 환율 정보 (Yahoo Finance 연동)</small></p>
             </div>
         </div>
     </section>
